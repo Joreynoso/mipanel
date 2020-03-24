@@ -18,12 +18,21 @@ Route::get('/', function () {
 });
 
 
-Route::resource('contacts', 'ContactController');
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/panel/principal', 'PrincipalController@index');
 
-Route::get('/panel/table', 'PrincipalController@tablas');
+
+// PANEL
+// ────────────────────────────────────────────────────────────────────────────────
+Route::prefix('panel')->group(function () {
+
+    Route::resource('notas', 'NotaController');
+
+    Route::get('table', 'PrincipalController@tablas');
+
+    Route::get('principal', 'PrincipalController@index');
+    
+    Route::get('archivo', 'NotaController@archivo')->name('archivo');
+});
