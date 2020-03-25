@@ -9,5 +9,7 @@ class Inicializar extends Seeder
     public function run(){
 
         factory(Nota::class, 4)->create();
+
+        factory(User::class, 25)->create();
     }
 }

@@ -14,7 +14,6 @@
         archivadas</a>
 </div>
 
-
 <div class="list-inline text-right">
     {{--  buscar --}}
     <form action="" class="list-inline-item" style="width: 250px;">
@@ -29,7 +28,7 @@
                     class="form-control border-0 bg-light" style="height: 30px;">
             </div>
         </div>
-    </form><!-- End -->
+    </form>
 
     {{--  ordenar por --}}
     <div class="dropdown mr-2 list-inline-item"">
@@ -49,20 +48,8 @@
 
 {{-- existen elementos? --}}
 @if ($notas->count() == 0)
-<div class="row mt-5">
-    <!-- ilustracion , sin elementos -->
-    <div class="col-12">
-        <div class="card" style="background: transparent; border: none;">
-            <div class="text-center">
-                <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                    src="{{URL::asset('/img/undraw_nodata.svg')}}" alt="">
 
-                <p class="text-center">oops! parece que no hay ningun elemento aun!</p>
-                <a href="">agrega uno &rarr;</a>
-            </div>
-        </div>
-    </div>
-</div>
+@include('layout.nodata')
 
 @else
 {{-- notas --}}
@@ -119,6 +106,7 @@
     @endif
     @endforeach
 </div>
+
 @endif
 
 @endsection
