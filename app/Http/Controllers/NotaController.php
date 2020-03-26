@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Nota;
 
-class NotaController extends Controller
-{
+class NotaController extends Controller{
+
     public function index(){
 
         $notas = Nota::sinterminar()->orderBy('created_at', 'DESC')->paginate(8);
