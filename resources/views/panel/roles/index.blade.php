@@ -25,13 +25,21 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <tr>
                     <th>#</th>
-                    <th>nombre</th>
-                    <th width="280px" class="text-center">Action</th>
+                    <th>rol</th>
+                    <th width="50%">permisos</th>
+                    <th width="20%" class="text-center">Action</th>
                 </tr>
                 @foreach ($roles as $key => $role)
                 <tr>
                     <td>{{ $role->id}}</td>
                     <td>{{ $role->name }}</td>
+
+                    <td>
+                        @foreach ($role->permissions as $item)
+                        <span class="badge badge-secondary mr-1">{{$item->name}}</span>
+                        @endforeach
+                    </td>
+
                     <td class="text-center">
                         <a href="{{ route('roles.show',$role->id) }}" class="btn btn-info btn-circle btn-sm">
                             <i class="fas fa-eye"></i>

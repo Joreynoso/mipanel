@@ -4,13 +4,13 @@
 
 {{-- cabecera --}}
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Roles</h1>
+    <h1 class="h3 mb-0 text-gray-800">Usuarios</h1>
     <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
             class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
 </div>
 
 {{-- nuevo --}}
-<a href="{{ route('roles.create')}}" class="btn btn-primary shadow-sm mb-2" style="min-width: 150px;">nuevo</a>
+<a href="" class="btn btn-primary shadow-sm mb-2" style="min-width: 150px;">nuevo</a>
 
 {{-- existen elementos? --}}
 @if ($data->count() == 0)

@@ -1,7 +1,7 @@
 <!-- Sidebar -->
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-    <!-- Sidebar - Brand -->
+    <!-- Logo -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon">
             <i class="fab fa-r-project"></i>
@@ -13,8 +13,8 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+    <li class="nav-item {{ (request()->is('panel/principal*')) ? 'active' : '' }}">
+        <a class="nav-link" href="{{route('principal')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Inicio</span></a>
     </li>
@@ -22,43 +22,34 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
 
-    <!-- Heading -->
+    <!-- cabecera -->
     <div class="sidebar-heading">
         gestion de usuarios
     </div>
 
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-            aria-controls="collapseTwo">
+    <!-- usuarios -->
+    <li class="nav-item {{ (request()->is('panel/usuarios*')) ? 'active' : '' }}">
+        <a class="nav-link" href="{{route('usuarios.index')}}">
             <i class="fas fa-users"></i>
             <span>Usuarios</span>
         </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Gestion de Usuarios:</h6>
-                <a class="collapse-item" href="buttons.html">Crear Usuario</a>
-                <a class="collapse-item" href="buttons.html">Crear Rol</a>
-                <a class="collapse-item" href="buttons.html">Lista Usuarios</a>
-                <a class="collapse-item" href="buttons.html">Lista Roles</a>
-            </div>
-        </div>
     </li>
 
-    <!-- Nav Item - Utilities Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+    <!-- roles -->
+    <li class="nav-item {{ request()->is('panel/roles*') ? 'active' : '' }}">
+        <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseUtilities"
             aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-wrench"></i>
-            <span>Utilities</span>
+            <i class="fas fa-user-tag"></i>
+            <span>Roles</span>
         </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div id="collapseUtilities" class="collapse {{ request()->routeIs('roles*') ? 'show' : ''}}"
+            aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Utilities:</h6>
-                <a class="collapse-item" href="utilities-color.html">Colors</a>
-                <a class="collapse-item" href="utilities-border.html">Borders</a>
-                <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                <a class="collapse-item" href="utilities-other.html">Other</a>
+                <h6 class="collapse-header">Gestion de Roles:</h6>
+                <a class="collapse-item {{ request()->routeIs('roles.index') ? 'active' : '' }}"
+                    href="{{ route('roles.index')}}">Lista de roles</a>
+                <a class="collapse-item {{ request()->routeIs('roles.create') ? 'active' : '' }}"
+                    href="{{ route('roles.create')}}">Crear rol</a>
             </div>
         </div>
     </li>

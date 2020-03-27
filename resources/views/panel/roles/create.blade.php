@@ -9,7 +9,7 @@
             class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
 </div>
 
-{{-- formulario --}}
+{!! Form::open(array('route' => 'roles.store','method'=>'POST')) !!}
 <div class="row">
     <div class="col-lg-6 mb-4">
         <div class="card shadow mb-4">
@@ -17,42 +17,49 @@
                 <h6 class="m-0 font-weight-bold text-primary">formulario de roles y permisos</h6>
             </div>
             <div class="card-body">
-                <form class="form-group" action="{{route('roles.store')}}" method="POST">
-                    @csrf
+                <label for="name"><strong>Nombre:</strong></label>
+                {!! Form::text('name', null, array('placeholder' => 'Nombre nuevo rol..','class' => 'form-control')) !!}
+                @error('name')
+                <p class="help-block">{{ $message }}</p>
+                @enderror
+                <br>
 
-                    <label for="name"><strong>Nombre Rol:</strong></label>
-                    <input type="text" name="name" placeholder="nombre nuevo rol.." class="form-control">
+                <div class="form-group">
+                    <label for="name"><strong>Permisos:</strong></label>
                     @error('name')
                     <p class="help-block">{{ $message }}</p>
                     @enderror
-                    <br>
-
-                    <label for="nombre" style="margin-bottom: 0!important;"><strong>Lista de Permisos:</strong></label>
-                    @error('name')
-                    <p class="help-block">{{ $message }}</p>
-                    @enderror
-                    
+                    <br />
                     <ul class="list-group">
-                        @foreach ($permission as $value)
+                        @foreach($permission as $value)
                         <li class="list-group-item rounded-0">
                             <div class="custom-control custom-checkbox">
-                                <input name="permission" class="custom-control-input" id="{{$value->id}}" value="{{$value->id}}" type="checkbox">
-                                <label class="cursor-pointer font-italic d-block custom-control-label" 
-                                for="{{$value->id}}">{{$value->name}}</label>
+                                {{--  <label>
+                                    <input name="permission[]" type="checkbox" value="{{$value->id}}">
+                                </label>  --}}
+
+                                <input class="custom-control-input" 
+                                name="permission[]" type="checkbox"  
+                                value="{{$value->id}}"
+                                id="{{$value->id}}">
+
+                                <label class="cursor-pointer font-italic d-block custom-control-label"
+                                    for="{{$value->id}}">{{$value->name}}</label>
                             </div>
                         </li>
                         @endforeach
                     </ul>
-                  
-                    <button type="submit" 
-                    class="btn btn-primary shadow-sm rounded-pill mt-4 mb-3 float-right"
+                </div>
+
+                <button type="submit" class="btn btn-primary shadow-sm rounded-pill mt-4 mb-3 float-right"
                     style="min-width: 150px;">confirmar</button>
 
-                </form>
             </div>
         </div>
-
     </div>
 </div>
+
+
+{!! Form::close() !!}
 
 @endsection

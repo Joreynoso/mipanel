@@ -20,7 +20,7 @@ Route::group(['middleware' => ['auth']], function() {
         Route::get('table', 'PrincipalController@tablas');
 
         //principal
-        Route::get('principal', 'PrincipalController@index');
+        Route::get('principal', 'PrincipalController@index')->name('principal');
 
         //notas
         Route::resource('notas', 'NotaController');
