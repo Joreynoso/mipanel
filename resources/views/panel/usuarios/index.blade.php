@@ -10,7 +10,7 @@
 </div>
 
 {{-- nuevo --}}
-<a href="" class="btn btn-primary shadow-sm mb-2" style="min-width: 150px;">nuevo</a>
+<a href="{{ route('roles.create')}}" class="btn btn-primary shadow-sm mb-2 rounded-pill" style="min-width: 150px;">nuevo</a>
 
 {{-- existen elementos? --}}
 @if ($data->count() == 0)

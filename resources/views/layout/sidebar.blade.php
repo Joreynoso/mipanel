@@ -44,7 +44,7 @@
         </a>
         <div id="collapseUtilities" class="collapse {{ request()->routeIs('roles*') ? 'show' : ''}}"
             aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
+            <div class="bg-dark py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Gestion de Roles:</h6>
                 <a class="collapse-item {{ request()->routeIs('roles.index') ? 'active' : '' }}"
                     href="{{ route('roles.index')}}">Lista de roles</a>

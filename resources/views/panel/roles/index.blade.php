@@ -10,7 +10,22 @@
 </div>
 
 {{-- nuevo --}}
-<a href="{{ route('roles.create')}}" class="btn btn-primary shadow-sm mb-2" style="min-width: 150px;">nuevo</a>
+<a href="{{ route('roles.create')}}" class="btn btn-primary shadow mb-2 rounded-pill"
+    style="min-width: 150px;">nuevo</a>
+
+<!-- buscador -->
+<form action="">
+    <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+        <div class="input-group">
+            <input type="search" placeholder="What're you searching for?" aria-describedby="button-addon1"
+                class="form-control border-0 bg-light">
+            <div class="input-group-append">
+                <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i
+                        class="fa fa-search"></i></button>
+            </div>
+        </div>
+    </div>
+</form>
 
 {{-- datatable --}}
 <div class="card shadow mb-4 mt-1">
