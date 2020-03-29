@@ -10,6 +10,7 @@ use DB;
     
 class RoleController extends Controller{
 
+    //permisos
     function __construct(){
 
          $this->middleware('permission:role-list|role-create|role-edit|role-delete', ['only' => ['index','store']]);
@@ -18,6 +19,7 @@ class RoleController extends Controller{
          $this->middleware('permission:role-delete', ['only' => ['destroy']]);
     }
     
+    //index
     public function index(Request $request){
 
         $roles = Role::orderBy('id','DESC')->paginate(5);
@@ -25,11 +27,13 @@ class RoleController extends Controller{
         return view('/panel/roles.index',compact('roles'));
     }
 
+    //create
     public function create(){
         $permission = Permission::get();
         return view('/panel/roles.create',compact('permission'));
     }
 
+    //store
     public function store(Request $request){
         $this->validate($request, [
             'name' => 'required|unique:roles,name',
@@ -39,19 +43,21 @@ class RoleController extends Controller{
         $role = Role::create(['name' => $request->input('name')]);
         $role->syncPermissions($request->input('permission'));
     
-        return redirect()->route('roles.index')
-                        ->with('success','Role created successfully');
+        return redirect()->route('/panel/roles.index')
+                        ->with('success','La Operacion fue exitosa!');
     }
  
+    //show
     public function show($id){
         $role = Role::find($id);
         $rolePermissions = Permission::join("role_has_permissions","role_has_permissions.permission_id","=","permissions.id")
             ->where("role_has_permissions.role_id",$id)
             ->get();
     
-        return view('roles.show',compact('role','rolePermissions'));
+        return view('/panel/roles.show',compact('role','rolePermissions'));
     }
 
+    //edit
     public function edit($id){
         $role = Role::find($id);
         $permission = Permission::get();
@@ -59,9 +65,10 @@ class RoleController extends Controller{
             ->pluck('role_has_permissions.permission_id','role_has_permissions.permission_id')
             ->all();
     
-        return view('roles.edit',compact('role','permission','rolePermissions'));
+        return view('/panel/roles.edit',compact('role','permission','rolePermissions'));
     }
     
+    //update
     public function update(Request $request, $id){
         $this->validate($request, [
             'name' => 'required',
@@ -78,6 +85,7 @@ class RoleController extends Controller{
                         ->with('success','Role updated successfully');
     }
  
+    //destroy
     public function destroy($id){
         DB::table("roles")->where('id',$id)->delete();
         return redirect()->route('roles.index')

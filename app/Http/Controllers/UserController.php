@@ -21,7 +21,7 @@ class UserController extends Controller
     public function create(){
 
         $roles = Role::pluck('name','name')->all();
-        return view('users.create',compact('roles'));
+        return view('/panel/usuarios.create',compact('roles'));
     } 
 
     public function store(Request $request){
@@ -39,7 +39,7 @@ class UserController extends Controller
         $user = User::create($input);
         $user->assignRole($request->input('roles'));
     
-        return redirect()->route('users.index')
+        return redirect()->route('/panel/usuarios.index')
                         ->with('success','User created successfully');
     }
     

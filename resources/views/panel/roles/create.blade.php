@@ -9,6 +9,10 @@
             class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
 </div>
 
+{{-- volver btn --}}
+<a href="{{ URL::previous() }}" class="btn btn-primary shadow-sm mb-2 rounded-pill"
+    style="min-width: 150px;"><i class="fas fa-long-arrow-alt-left fs-12 mr-2"></i>volver</a>
+
 {!! Form::open(array('route' => 'roles.store','method'=>'POST')) !!}
 <div class="row">
     <div class="col-lg-6 mb-4">
@@ -51,14 +55,13 @@
                     </ul>
                 </div>
 
-                <button type="submit" class="btn btn-primary shadow-sm rounded-pill mt-4 mb-3 float-right"
+                <button type="submit" class="btn btn-primary shadow-sm rounded-pill mt-2 mb-2 float-right"
                     style="min-width: 150px;">confirmar</button>
 
             </div>
         </div>
     </div>
 </div>
-
 
 {!! Form::close() !!}
 

@@ -1,4 +1,4 @@
-<div class="row mt-5">
+<div class="row">
     <!-- Illustrations -->
     <div class="col-12">
         <div class="card " style="background: transparent; border: none;">
