@@ -7,7 +7,7 @@
 
 </head>
 
-<body class="bg-gradient-primary">
+<body class="bg-light">
 
     <div class="container">
 
@@ -15,7 +15,7 @@
             <div class="card-body p-0">
 
                 <div class="row">
-                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-5 d-none d-lg-block bg-login-image"></div>
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">

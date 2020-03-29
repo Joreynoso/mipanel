@@ -6,12 +6,12 @@
 {{-- cabecera --}}
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800 fw-400">Mis Notas</h1>
-    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm waves-effect waves-light"><i
-            class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+    <a href="{{ route('archivo')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm waves-effect waves-light"><i
+            class="fas fa-archive fa-sm text-white-50"></i> archivo notas</a>
 </div>
 
 {{-- nuevo --}}
-<a href="{{ route('roles.create')}}" class="btn btn-primary shadow-sm mb-2 rounded-pill" style="min-width: 150px;">nuevo</a>
+<a href="{{ route('roles.create')}}" class="btn btn-primary shadow-sm mb-2 rounded-pill" style="min-width: 150px;">nueva nota</a>
 
 {{-- existen elementos? --}}
 @if ($notas->count() == 0)

@@ -11,7 +11,7 @@
 
 {{-- nuevo --}}
 <a href="{{ route('roles.create')}}" class="btn btn-primary shadow mb-2 rounded-pill"
-    style="min-width: 150px;">nuevo</a>
+    style="min-width: 150px;">nuevo rol</a>
 
 <!-- buscador -->
 <form action="">
