@@ -13,6 +13,8 @@ class Inicializar extends Seeder
 
         factory(Nota::class, 8)->create();
 
+        factory(User::class, 12)->create();
+
         // Reset cached roles and permissions
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 

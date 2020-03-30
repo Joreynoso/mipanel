@@ -6,7 +6,7 @@
         <div class="sidebar-brand-icon">
             <i class="fab fa-r-project"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Mi Panel<sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">RT<sup>2</sup></div>
     </a>
 
     <!-- Divider -->

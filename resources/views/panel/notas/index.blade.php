@@ -19,7 +19,7 @@
 
 @else
 {{-- notas --}}
-<div class="row mt-3 d-fe">
+<div class="row mt-2">
     @foreach ($notas as $item)
 
     <div class="col-xl-3 col-sm-6 mb-3 d-flex" style="position: relative;">

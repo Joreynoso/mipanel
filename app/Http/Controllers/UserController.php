@@ -39,7 +39,7 @@ class UserController extends Controller
         $user = User::create($input);
         $user->assignRole($request->input('roles'));
     
-        return redirect()->route('/panel/usuarios.index')
+        return redirect()->route('usuarios.index')
                         ->with('success','User created successfully');
     }
     
@@ -55,17 +55,17 @@ class UserController extends Controller
         $user = User::find($id);
         $roles = Role::pluck('name','name')->all();
         $userRole = $user->roles->pluck('name','name')->all();
-    
-        return view('users.edit',compact('user','roles','userRole'));
+
+        return view('/panel/usuarios.edit',compact('user','roles','userRole'));
     }
     
     public function update(Request $request, $id){
-
+        
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required|email|unique:users,email,'.$id,
-            'password' => 'same:confirm-password',
-            'roles' => 'required'
+            'password'  => 'required',
+            'confirm-password' => 'required|same:password'      
         ]);
     
         $input = $request->all();
@@ -81,14 +81,15 @@ class UserController extends Controller
     
         $user->assignRole($request->input('roles'));
     
-        return redirect()->route('users.index')
+        return redirect()->route('usuarios.index')
                         ->with('success','User updated successfully');
     }
+    
     
     public function destroy($id){
 
         User::find($id)->delete();
-        return redirect()->route('users.index')
+        return redirect()->route('usuarios.index')
                         ->with('success','User deleted successfully');
     }
 }
