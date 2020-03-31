@@ -23,10 +23,10 @@ class Inicializar extends Seeder
         'role-create',
         'role-edit',
         'role-delete',
-        'product-list',
-        'product-create',
-        'product-edit',
-        'product-delete'
+        'notas lista',
+        'notas crear',
+        'notas editar',
+        'notas borrar'
         ];
 
         foreach ($permissions as $permission) {
@@ -35,7 +35,7 @@ class Inicializar extends Seeder
 
         $user = User::create([
         	'name' => 'Jose Reynoso', 
-        	'email' => 'admin@gmail.com',
+        	'email' => 'jose@gmail.com',
         	'password' => bcrypt('123456')
         ]);
   

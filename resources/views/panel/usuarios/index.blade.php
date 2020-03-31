@@ -3,15 +3,15 @@
 @section('content')
 
 {{-- cabecera --}}
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
+<div class="d-sm-flex align-items-center justify-content-between mb-3">
     <h1 class="h3 mb-0 text-gray-800 ml-1">Usuarios</h1>
     <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
             class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
 </div>
 
 {{-- nuevo --}}
-<a href="{{ route('usuarios.create')}}" class="btn btn-primary shadow-sm mb-2 rounded-pill"
-    style="min-width: 150px;">nuevo usuario</a>
+<a href="{{ route('usuarios.create')}}" class="btn btn-primary shadow-sm mb-3 rounded-pill"
+    style="min-width: 150px;">Nuevo usuario</a>
 
 {{-- existen elementos? --}}
 @if ($data->count() == 0)
@@ -23,7 +23,7 @@
 {{-- datatable --}}
 <div class="card shadow mb-4 mt-2">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Tabla de usuarios</h6>
+        <h6 class="m-0 text-primary">Tabla de usuarios</h6>
         <p style="margin-bottom: 0px; margin-top: 10px;">{{$data->total()}} registros |
             pagina {{$data->currentPage()}}
             de {{$data->lastPage()}}</p>

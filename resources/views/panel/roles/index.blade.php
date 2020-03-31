@@ -3,19 +3,19 @@
 @section('content')
 
 {{-- cabecera --}}
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
+<div class="d-sm-flex align-items-center justify-content-between mb-3">
     <h1 class="h3 mb-0 text-gray-800 ml-1">Roles</h1>
     <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
             class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
 </div>
 
 {{-- nuevo --}}
-<a href="{{ route('roles.create')}}" class="btn btn-primary shadow mb-2 rounded-pill" style="min-width: 150px;">Nuevo Rol</a>
+<a href="{{ route('roles.create')}}" class="btn btn-primary shadow mb-3 rounded-pill" style="min-width: 150px;">Nuevo Rol</a>
 
 {{-- datatable --}}
 <div class="card shadow mb-3 mt-2">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Lista de Roles</h6>
+        <h6 class="m-0 text-primary">Lista de Roles</h6>
         <p style="margin-bottom: 0px; margin-top: 10px;">{{$roles->total()}} registros |
             pagina {{$roles->currentPage()}}
             de {{$roles->lastPage()}}</p>

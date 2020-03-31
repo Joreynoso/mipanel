@@ -10,7 +10,7 @@
 </div>
 
 {{-- volver btn --}}
-<a href="{{ URL::previous() }}" class="btn btn-primary shadow-sm mb-2 rounded-pill"
+<a href="{{ URL::previous() }}" class="btn btn-light shadow-sm mb-2 rounded-pill"
     style="min-width: 150px;"><i class="fas fa-long-arrow-alt-left fs-12 mr-2"></i>volver</a>
 
 <div class="row">

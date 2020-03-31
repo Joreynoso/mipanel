@@ -3,14 +3,14 @@
 @section('content')
 
 {{-- cabecera --}}
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
+<div class="d-sm-flex align-items-center justify-content-between mb-3">
     <h1 class="h3 mb-0 text-gray-800 fw-400">Mis Notas</h1>
     <a href="{{ route('archivo')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm waves-effect waves-light"><i
             class="fas fa-archive fa-sm text-white-50"></i> archivo notas</a>
 </div>
 
 {{-- nuevo --}}
-<a href="{{ route('roles.create')}}" class="btn btn-primary shadow-sm mb-2 rounded-pill" style="min-width: 150px;">nueva nota</a>
+<a href="{{ route('roles.create')}}" class="btn btn-primary shadow-sm mb-3 rounded-pill" style="min-width: 150px;">Nueva nota</a>
 
 {{-- existen elementos? --}}
 @if ($notas->count() == 0)
