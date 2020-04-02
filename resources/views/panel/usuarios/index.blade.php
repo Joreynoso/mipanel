@@ -2,6 +2,9 @@
 
 @section('content')
 
+{{-- includes --}}
+@include('layout.modal-delete')
+
 {{-- cabecera --}}
 <div class="d-sm-flex align-items-center justify-content-between mb-3">
     <h1 class="h3 mb-0 text-gray-800 ml-1">Usuarios</h1>
@@ -45,7 +48,8 @@
 
                 <tbody>
                     @foreach ($data as $key => $user)
-                    <tr>
+                    <tr data-id="{{$user->id}}">
+                        
                         <td>{{$user->id}}</td>
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
@@ -69,14 +73,11 @@
                                 class="btn btn-warning btn-circle btn-sm">
                                 <i class="fas fa-pen"></i>
                             </a>
-                            <form action="{{ route('usuarios.destroy',$user) }}" class="d-inline" method="POST">
-                                @method('DELETE')
-                                @csrf
 
-                                <button type="submit" class="btn btn-danger btn-circle btn-sm">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </form>
+                            <a href="{{ route('usuarios.destroy', $user->id )}}" title="editar"
+                                class="delete-record btn btn-danger btn-circle btn-sm">
+                                <i class="fas fa-trash"></i>
+                            </a>
                         </td>
                     </tr>
                     @endforeach

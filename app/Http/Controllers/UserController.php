@@ -89,11 +89,31 @@ class UserController extends Controller
     }
     
     
-    public function destroy($id){
+    public function destroy(Request $request, $id){
 
-        User::find($id)->delete();
-        return redirect()->route('usuarios.index')
-                        ->with('success','User deleted successfully');
+        if ($request->ajax()) {
+            $user = User::find($id);
+
+            if (!is_null($user)) {
+                
+                $user->delete();
+                
+                return response()->json([
+                    'response' => true,
+                    'id'       => $user->id,
+                    'message'  => 'Usuario eliminado correctamente',
+                ]);
+            }
+
+            return response()->json([
+                'response' => false,
+                'message'  => 'Ha ocurrido un error, intente nuevamente',
+            ]);
+        }
+
+        // User::find($id)->delete();
+        // return redirect()->route('usuarios.index')
+        //                 ->with('success','User deleted successfully');
     }
 }
     
