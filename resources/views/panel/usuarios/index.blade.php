@@ -10,7 +10,7 @@
 </div>
 
 {{-- nuevo --}}
-<a href="{{ route('usuarios.create')}}" class="btn btn-primary shadow-sm mb-3 rounded-pill"
+<a href="{{ route('usuarios.create') }}" data-remote="true" class="btn btn-primary shadow-sm mb-3 rounded-pill"
     style="min-width: 150px;">Nuevo usuario</a>
 
 {{-- existen elementos? --}}
@@ -87,7 +87,5 @@
         {!! $data->render() !!}
     </div>
 </div>
-
 @endif
-
 @endsection

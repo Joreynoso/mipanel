@@ -5,12 +5,16 @@
 {{-- cabecera --}}
 <div class="d-sm-flex align-items-center justify-content-between mb-3">
     <h1 class="h3 mb-0 text-gray-800 fw-400">Mis Notas</h1>
-    <a href="{{ route('archivo')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm waves-effect waves-light"><i
+    <a href="{{ route('archivo')}}"
+        class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm waves-effect waves-light"><i
             class="fas fa-archive fa-sm text-white-50"></i> archivo notas</a>
 </div>
 
 {{-- nuevo --}}
-<a href="{{ route('roles.create')}}" class="btn btn-primary shadow-sm mb-3 rounded-pill" style="min-width: 150px;">Nueva nota</a>
+<button class="btn btn-primary shadow-sm mb-3 rounded-pill" data-toggle="modal" data-target="#myModal" id="open"
+    style="min-width: 150px;">
+    Nueva nota
+</button>
 
 {{-- existen elementos? --}}
 @if ($notas->count() == 0)
@@ -46,5 +50,44 @@
 
     @endforeach
 </div>
+
 @endif
 @endsection
+
+{{-- modal --}}
+<form method="post" id="form">
+    @csrf
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header">
+
+                    <h5 class="modal-title">Nueva nota</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                {{-- body modal --}}
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label for="descripcion" class="text-black-50">Descripcion:</label>
+                            <input type="text" name="descripcion" class="form-control"
+                                placeholder="Ingrese descripcion.." id="descripcion">
+                        </div>
+                    </div>
+                </div>{{-- final body modal --}}
+
+                {{-- modal footer --}}
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light shadow-sm mb-3 rounded-pill" data-dismiss="modal"
+                        style="opacity: 0.7">Cancelar</button>
+                    <button class="btn btn-primary shadow-sm mb-3 rounded-pill" id="ajaxSubmit">Crear nota</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
