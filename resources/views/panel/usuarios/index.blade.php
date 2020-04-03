@@ -86,7 +86,7 @@
     </div>
 </div>
 
-{{-- ANCHOR vista en SMARTPHONES --}}
+{{-- SECTION VISTA PARA CELULARES --}}
 <div class="d-sm-none">
     <p class="fs-16 fw-400 text-primary">{{$data->total()}} registros | 
         pagina {{$data->currentPage()}}
@@ -119,10 +119,7 @@
         </div>
     </div>
     @endforeach
-
     {!! $data->render() !!}
-
 </div>
-
 @endif
 @endsection
