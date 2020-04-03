@@ -38,6 +38,12 @@ class Inicializar extends Seeder
         	'email' => 'jose@gmail.com',
         	'password' => bcrypt('123456')
         ]);
+
+        $user2 = User::create([
+        	'name' => 'Jose Albornos', 
+        	'email' => 'jorge@gmail.com',
+        	'password' => bcrypt('123456')
+        ]);
   
         $role = Role::create(['name' => 'Super Admin']);
    
@@ -46,5 +52,7 @@ class Inicializar extends Seeder
         $role->syncPermissions($permissions);
    
         $user->assignRole([$role->id]);
+        
+        $user2->assignRole([$role->id]);
     }
 }
