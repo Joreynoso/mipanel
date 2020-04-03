@@ -24,10 +24,11 @@
 @else
 {{-- notas --}}
 <div class="row mt-2">
+
     @foreach ($notas as $item)
 
     <div class="col-xl-3 col-sm-6 mb-3 d-flex" style="position: relative;">
-        <blockquote class="blockquote shadow rounded flex-fill">
+        <blockquote class="blockquote bg-white shadow rounded flex-fill">
             <div class="p-nota">
                 <p class="mb-0 fw-400 noselect">{{$item->descripcion}}.</p>
                 <hr>
@@ -40,7 +41,7 @@
                     @method('DELETE')
                     @csrf --}}
                     <button title="archivar" class="btn mr-2 btn-link fw-300 fs-12 text-uppercase float-right"
-                        type="submit">archivar
+                        type="submit" style="color: black;">archivar
                     </button>
                     </form>
                 </div>

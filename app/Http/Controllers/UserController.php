@@ -91,6 +91,7 @@ class UserController extends Controller
     
     public function destroy(Request $request, $id){
 
+        // TODO terminar de revisar las respuestas json para mostrar en un mensaj
         if ($request->ajax()) {
             $user = User::find($id);
 
